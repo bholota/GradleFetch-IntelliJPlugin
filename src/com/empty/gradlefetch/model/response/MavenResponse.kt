@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
  * Created by mr3mpty on 21.09.2015.
  */
 public class MavenResponse {
-    SerializedName("responseHeader")
+    @SerializedName("responseHeader")
     public var header: MavenHeader? = null
     public var response: MavenResponseBody? = null
 }

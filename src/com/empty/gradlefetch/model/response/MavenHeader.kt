@@ -18,7 +18,7 @@ public class MavenHeader {
         public var q: String? = null
         public var qf: String? = null
 
-        SerializedName("spellcheck.count")
+        @SerializedName("spellcheck.count")
         public var spellcheckCount: String? = null
         public var wt: String? = null
         public var rows: String? = null
