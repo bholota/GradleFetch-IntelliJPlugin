@@ -1,0 +1,49 @@
+<idea-plugin version="2">
+    <id>com.empty.gradlefetch</id>
+    <name>Plugin display name here</name>
+    <version>1.0</version>
+    <vendor email="bartekholota@gmail.com" url="http://bhsoft.pl">BH-SOFT</vendor>
+
+    <depends>org.jetbrains.plugins.gradle</depends>
+    <depends>org.intellij.groovy</depends>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="131"/>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationConfigurable instance="com.empty.gradlefetch.SettingsUI"/>
+        <completion.contributor language="Groovy" implementationClass="com.empty.gradlefetch.GradleFetchCompletion"
+                                order="first"/>
+    </extensions>
+
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
+
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+</idea-plugin>
