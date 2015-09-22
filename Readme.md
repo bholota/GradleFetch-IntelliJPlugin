@@ -1,6 +1,11 @@
 ##Code completion plugin for IntelliJ in Kotlin
 
- #TODO: SettingsUI need to be connected with data storage
+Simple plugin for experimenting with IntelliJ Plugin SDK
+
+ #TODO: 
+ -SettingsUI need to be connected with data storage
+ -Plugin description
+ -A lot of Javadoc
  
 ####Usage:
 shift+ctrl+space when editing gradle dependency string param:
