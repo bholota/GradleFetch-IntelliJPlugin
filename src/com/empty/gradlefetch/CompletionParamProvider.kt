@@ -34,7 +34,7 @@ public class CompletionParamProvider : CompletionProvider<CompletionParameters>(
                 resultSet.restartCompletionOnPrefixChange(text)
             }
 
-            val result = api.searchRepository(text, 10).execute()
+            val result = api.searchRepository(text, Constants.DEFAULT_REQUEST_COUNT).execute()
 
             if (result.isSuccess) {
                 resultSet.addAllElements(
