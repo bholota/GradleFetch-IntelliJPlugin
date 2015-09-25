@@ -1,21 +1,19 @@
 <idea-plugin version="2">
     <id>com.empty.gradlefetch</id>
-    <name>Plugin display name here</name>
+    <name>GradleFetch - gradle dependency code completion</name>
     <version>1.0</version>
     <vendor email="bartekholota@gmail.com" url="http://bhsoft.pl">BH-SOFT</vendor>
 
     <depends>org.jetbrains.plugins.gradle</depends>
     <depends>org.intellij.groovy</depends>
 
-    <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>
+        Adds smart completion for maven dependencies inside gradle dependencies{} closure it can be triggered with:
+        ctrl+shift+space
+    </description>
 
-    <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
+    <change-notes>
+
     </change-notes>
 
     <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
