@@ -31,53 +31,8 @@ public class GradleFetchCompletion : AbstractGradleCompletionContributor() {
                         .and(AbstractGradleCompletionContributor.GRADLE_FILE_PATTERN)
                         .withParent(GrLiteral::class.java)
                         .withSuperParent(5, psiElement(GrMethodCallExpression::class.java)
-                                .withText(string().contains("dependencies"))),
+                                .withText(string().contains(Constants.DEPENDENCIES_CLOSURE))),
                 CompletionParamProvider()
         )
-    }
-
-    private class CompletionParamProvider : CompletionProvider<CompletionParameters>() {
-
-        val api = MavenApiClient().api
-
-        override fun addCompletions(
-                parameters: CompletionParameters,
-                context: ProcessingContext?,
-                resultSet: CompletionResultSet) {
-
-            val position = parameters.originalPosition
-            position?.let {
-                val text = trimQuote(it.text)
-
-                if (isShortText(text)) {
-                    return
-                }
-
-                val list = text.split(splitPattern)
-
-                if (list.size() !in 2..3) {
-                    resultSet.restartCompletionOnPrefixChange(text)
-                }
-
-                val result = api.searchRepository(text, 10).execute()
-
-                if (result.isSuccess) {
-                    resultSet.addAllElements(
-                            result.body().response!!.docs!!.map {
-                                LookupElementBuilder.create(it.id + ":" + it.latestVersion)
-                            }.toList()
-                    )
-                    resultSet.stopHere()
-                }
-            }
-        }
-
-        companion object {
-            val splitPattern = Pattern.compile(":")
-
-            fun isShortText(text: String?) = (text?.length() ?: 0) < 2
-
-            fun trimQuote(text: String) = text.trim('"', '\'').trimEnd('"', '\'')
-        }
     }
 }

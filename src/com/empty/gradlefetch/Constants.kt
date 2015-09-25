@@ -5,5 +5,6 @@ package com.empty.gradlefetch
  */
 
 object Constants {
+    public val DEPENDENCIES_CLOSURE: String = "dependencies"
     public val APP_NAME: String = "GradleFetch"
 }
