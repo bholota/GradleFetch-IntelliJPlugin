@@ -30,6 +30,7 @@ public class CompletionParamProvider : CompletionProvider<CompletionParameters>(
 
             val list = text.split(splitPattern)
 
+            //if completion wasn't complete (we didn't get package + name + version) restart completion when new input
             if (list.size() !in 2..3) {
                 resultSet.restartCompletionOnPrefixChange(text)
             }
@@ -50,7 +51,7 @@ public class CompletionParamProvider : CompletionProvider<CompletionParameters>(
     companion object {
         val splitPattern = Pattern.compile(":")
 
-        fun isShortText(text: String?) = (text?.length() ?: 0) < 2
+        fun isShortText(text: String?) = (text?.length() ?: 0) <= 2
 
         fun trimQuote(text: String) = text.trim('"', '\'').trimEnd('"', '\'')
     }
